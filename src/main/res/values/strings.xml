@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="ru">RU</string>
+    <string name="us">US</string>
+    <string name="ch">CH</string>
+    <string name="de">DE</string>
+    <string name="jp">JP</string>
+    <string name="skr">SKR</string>
+</resources>
