@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         intent.putExtra("image", article.getUrlToImage());
         intent.putExtra("title", article.getTitle());
         intent.putExtra("url", article.getUrl());
-        intent.putExtra("author", article.getAuthor());
         intent.putExtra("publishedAt", article.getPublishedAt());
+        intent.putExtra("language", LANGUAGE);
         startActivity(intent);
     }
 

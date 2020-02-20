@@ -6,17 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".detail.DetailInfo">
 
+    <RelativeLayout
+        android:id="@+id/relayDetail"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FBC02D"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            style="@style/ButtonBack"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_arrow_back"
+            android:paddingTop="2dp" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:fontFamily="sans-serif-black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/relayDetail" />
 
     <ImageView
         android:id="@+id/imageDet"
@@ -25,7 +44,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:src="@mipmap/ic_launcher"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle" />
@@ -35,8 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="13sp"
-        android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageDet" />
@@ -61,13 +79,11 @@
         android:id="@+id/publishedTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-black"
         android:textSize="13sp"
-        android:textStyle="italic"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/url" />
-
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDesc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
