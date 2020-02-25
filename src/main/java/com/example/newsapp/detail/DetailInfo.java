@@ -2,9 +2,8 @@ package com.example.newsapp.detail;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.newsapp.R;
 import com.example.newsapp.webView.WebViewActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,6 +33,9 @@ public class DetailInfo extends AppCompatActivity {
     String mainUrl;
     String lang;
     Button backBtn;
+    Button shareBtn;
+    public AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +48,35 @@ public class DetailInfo extends AppCompatActivity {
         urlClick.setOnClickListener(view -> {
 
             Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
-            intent.putExtra("urlView", mainUrl );
+            intent.putExtra("urlView", mainUrl);
             startActivity(intent);
         });
 
         backBtn.setOnClickListener(view -> finish());
+        shareBtn.setOnClickListener(view -> {
+            Intent intent = new Intent();
+            intent.putExtra(Intent.EXTRA_TEXT, mainUrl);
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/*");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        });
 
 
+        MobileAds.initialize(this, initializationStatus -> {
+
+
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("TEST_DEVICE_ID").build();
+        mAdView.loadAd(adRequest);
+
+        Log.d("ololo", "ad");
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-4708068541671420/6340454903");
     }
 
     public void initViews() {
@@ -58,6 +86,7 @@ public class DetailInfo extends AppCompatActivity {
         title = findViewById(R.id.textTitle);
         publishedAt = findViewById(R.id.publishedTime);
         backBtn = findViewById(R.id.back);
+        shareBtn = findViewById(R.id.share);
     }
 
     @SuppressLint("SimpleDateFormat")

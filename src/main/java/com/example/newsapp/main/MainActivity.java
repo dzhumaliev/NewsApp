@@ -1,14 +1,14 @@
 package com.example.newsapp.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.newsapp.R;
 import com.example.newsapp.detail.DetailInfo;
@@ -17,6 +17,9 @@ import com.example.newsapp.entity.Example;
 import com.example.newsapp.network.RetrofitBuilder;
 import com.example.newsapp.recycler.MainAdapter;
 import com.example.newsapp.recycler.OnItemClickListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     private Button jpBtn;
     private Button deBtn;
     private Button skrBtn;
+    public AdView mAdView;
 
 
     @Override
@@ -44,6 +48,20 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         ConRes();
         Retro();
         langChange();
+
+        MobileAds.initialize(this, initializationStatus -> {
+
+
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        Log.d("ololo", "ad");
+//        AdView adView = new AdView(this);
+//        adView.setAdSize(AdSize.BANNER);
+//        adView.setAdUnitId("ca-app-pub-4708068541671420/6340454903");
 
     }
 

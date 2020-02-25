@@ -6,58 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".detail.DetailInfo">
 
-    <RelativeLayout
-        android:id="@+id/relayDetail"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#FBC02D"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/upBar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="#FBC02D"
+    >
+    <Button
+        android:id="@+id/back"
+        style="@style/ButtonBack"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_keyboard_arrow_left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/logoText"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="NEWS"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            style="@style/ButtonBack"
-            android:adjustViewBounds="true"
-            android:background="@drawable/ic_arrow_back"
-            android:paddingTop="2dp" />
-    </RelativeLayout>
+
+    <Button
+        android:id="@+id/share"
+        style="@style/ButtonBack"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_share"
+        android:paddingTop="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="sans-serif-black"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relayDetail" />
+        app:layout_constraintTop_toBottomOf="@id/upBar" />
 
-    <ImageView
-        android:id="@+id/imageDet"
-        android:layout_width="400dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+    <TextView
+        android:id="@+id/publishedTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-black"
+        android:textSize="13sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
 
     <TextView
         android:id="@+id/textDesc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="13sp"
+        android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageDet" />
+        app:layout_constraintTop_toBottomOf="@id/publishedTime" />
 
 
     <TextView
@@ -75,15 +113,30 @@
         app:layout_constraintTop_toBottomOf="@id/textDesc" />
 
 
-    <TextView
-        android:id="@+id/publishedTime"
+    <ImageView
+        android:id="@+id/imageDet"
+        android:layout_width="400dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/url" />
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-black"
-        android:textSize="13sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textDesc" />
+        ads:layout_constraintTop_toBottomOf="@id/imageDet"
+        android:layout_marginTop="10sp"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-4708068541671420/6340454903">
+    </com.google.android.gms.ads.AdView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
         return new MainViewHolder(view);
 
 
+
     }
 
     @Override
