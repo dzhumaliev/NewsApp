@@ -21,6 +21,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,7 +66,20 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 //        adView.setAdSize(AdSize.BANNER);
 //        adView.setAdUnitId("ca-app-pub-4708068541671420/6340454903");
 
+
     }
+
+//    public String convert(long dt) {
+//        Date date = new Date(dt * 1000L);
+//        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+//        String formatted = sdf.format(date);
+//        return formatted;
+//    }
+//
+//    public static String convert(String sunrise){
+//        return sunrise;
+//    }
+
 
     public void itemViews() {
         recyclerView = findViewById(R.id.recycle_view);
@@ -149,3 +165,4 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         adapter.update(body.getArticles());
     }
 }
+

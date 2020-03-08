@@ -12,24 +12,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".webView.WebViewActivity" />
-        <activity android:name=".detail.DetailInfo" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".music.Music">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".webView.WebViewActivity" />
+        <activity android:name=".detail.DetailInfo" />
+        <activity android:name=".main.MainActivity">
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4708068541671420~7984709062"/>
-
+            android:value="ca-app-pub-4708068541671420~7984709062" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
